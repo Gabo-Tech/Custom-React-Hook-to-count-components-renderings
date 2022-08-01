@@ -1,24 +1,15 @@
-import logo from './logo.svg';
+import React, { useState , useEffect} from 'react';
 import './App.css';
-
+import useCount from './useCount';
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+  const [bool, setBool] = useState(true);
+  const counter = useCount();
+  return (  
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+            {counter}
+            <button onClick={()=>{setBool(!bool)}}>Change boolean value</button>
+            This is a boolean {JSON.stringify(bool)}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
   );
 }
 
